@@ -35,7 +35,7 @@ def main():
         # 生成动态uuid
         uid = uuid.uuid1()
 
-        # 设置请求头
+        # 设置请求头，利用实时生成的uuid伪造cookie
         headers = {
             "Accept": "application/json, text/javascript, */*; q=0.01",
             "Accept-Language": "zh-CN,zh;q=0.9",
@@ -73,11 +73,6 @@ def main():
                 # 终端实时打印爬取结果
                 print(message)
                 f.write(message)
-
-        # 将数据每15条写入文件
-        #with open(r'C:\Users\Administrator\Desktop\lagou.txt', 'a+') as f:
-        #    for item in result["content"]["positionResult"]["result"]:
-        #        f.write(json.dumps(item, ensure_ascii=False)+"\n")
 
         # 页数自增1
         pn += 1
